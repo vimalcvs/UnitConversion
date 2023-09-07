@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.vimalcvs.calculator">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- 适配android 11无法唤起第三方apk -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.DIAL" />
+        </intent>
+        <!-- 支付宝支付SDK -->
+        <package android:name="com.eg.android.AlipayGphone" />
+    </queries>
+    <!-- 适配android 11无法使用tts -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+    </queries>
+
+    <application
+        android:name="com.vimalcvs.calculator.MyApplication"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:enableOnBackInvokedCallback="true"
+        android:fullBackupContent="@xml/backup_rules"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:localeConfig="@xml/locales_config"
+        android:resizeableActivity="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:targetApi="tiramisu">
+        <activity
+            android:name="com.vimalcvs.calculator.finance.FinanceActivity"
+            android:exported="true"
+            android:label="@string/financeActivity"
+            android:launchMode="singleTask"
+            android:parentActivityName="com.vimalcvs.calculator.MainActivity">
+            <intent-filter>
+                <action android:name="com.yangdai.calc.finance.FinanceActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.vimalcvs.calculator.DiscountActivity"
+            android:exported="true"
+            android:label="@string/discountActivity"
+            android:launchMode="singleTask"
+            android:parentActivityName="com.vimalcvs.calculator.MainActivity">
+            <intent-filter>
+                <action android:name="com.yangdai.calc.DiscountActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.vimalcvs.calculator.relationship.RelationshipActivity"
+            android:exported="true"
+            android:label="@string/relationshipActivity"
+            android:launchMode="singleTask"
+            android:parentActivityName="com.vimalcvs.calculator.MainActivity">
+            <intent-filter>
+                <action android:name="com.yangdai.calc.relationship.RelationshipActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.vimalcvs.calculator.ChineseNumberConversionActivity"
+            android:exported="true"
+            android:label="@string/chineseNumberConverter"
+            android:launchMode="singleTask"
+            android:parentActivityName="com.vimalcvs.calculator.MainActivity">
+            <intent-filter>
+                <action android:name="com.yangdai.calc.ChineseNumberConversionActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.vimalcvs.calculator.exchange.ExchangeActivity"
+            android:exported="true"
+            android:label="@string/exchangeActivity"
+            android:parentActivityName="com.vimalcvs.calculator.MainActivity">
+            <intent-filter>
+                <action android:name="com.yangdai.calc.exchange.ExchangeActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.vimalcvs.calculator.BMIActivity"
+            android:exported="true"
+            android:label="@string/bmiActivity"
+            android:launchMode="singleTask"
+            android:parentActivityName="com.vimalcvs.calculator.MainActivity">
+            <intent-filter>
+                <action android:name="com.yangdai.calc.BMIActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.vimalcvs.calculator.time.DateRangeActivity"
+            android:exported="true"
+            android:label="@string/dateActivity"
+            android:launchMode="singleTask"
+            android:parentActivityName="com.vimalcvs.calculator.MainActivity">
+            <intent-filter>
+                <action android:name="com.yangdai.calc.time.DateRangeActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.vimalcvs.calculator.compass.Compass"
+            android:exported="true"
+            android:label="@string/compassActivity"
+            android:launchMode="singleTask"
+            android:parentActivityName="com.vimalcvs.calculator.MainActivity">
+            <intent-filter>
+                <action android:name="com.yangdai.calc.compass.Compass" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.vimalcvs.calculator.AboutActivity"
+            android:exported="false"
+            android:label="@string/about"
+            android:parentActivityName="com.vimalcvs.calculator.MainActivity" />
+        <activity
+            android:name="com.vimalcvs.calculator.SettingActivity"
+            android:exported="false"
+            android:label="@string/settings"
+            android:parentActivityName="com.vimalcvs.calculator.MainActivity" />
+        <activity
+            android:name="com.vimalcvs.calculator.converter.UnitActivity"
+            android:exported="true"
+            android:label="@string/ChangeActivity"
+            android:launchMode="singleTask"
+            android:parentActivityName="com.vimalcvs.calculator.MainActivity">
+            <intent-filter>
+                <action android:name="com.yangdai.calc.converter.ChangeActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.vimalcvs.calculator.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity>
+        <activity
+            android:name="com.google.android.gms.oss.licenses.OssLicensesMenuActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.google.android.gms.oss.licenses.OssLicensesActivity"
+            android:theme="@style/AppTheme" />
+
+        <receiver
+            android:name="com.vimalcvs.calculator.MyWidgetProvider"
+            android:exported="false"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/appwidget_provider" />
+        </receiver>
+    </application>
+
+</manifest>
